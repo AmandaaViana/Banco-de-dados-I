@@ -1,6 +1,7 @@
 CREATE DATABASE lojaif;
 \c lojaif;
 
+
 CREATE TABLE produto( 
 	id SERIAL PRIMARY KEY,
 	descricao VARCHAR(100),
@@ -33,3 +34,13 @@ CREATE TABLE produto (
 	preco DECIMAL(12, 2),
 	estoque INT
 );
+
+INSERT INTO produto (descricao, preco, estoque) 
+VALUES ('Notebook' , 2500.00, 10);
+
+INSERT INTO produto (descricao, preco, estoque) 
+VALUES ('Mouse' , 50.00, 100);
+
+INSERT INTO produto (descricao, preco, estoque) 
+VALUES ('Teclado' , 150.00, 50);
+

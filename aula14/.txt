@@ -53,4 +53,9 @@ VALUES ('Teclado' , 150.00, 'HOJE'); //erro o hoje precisa ser um valor inteiro
 INSERT INTO produto (descricao, preco, estoque) 
 VALUES ('2025' , 150.00, 15);
 
+INSERT INTO produto (id_prod, descricao, preco, estoque) 
+VALUES (3, 'ERRADO' , 150.00, 15);
+
+INSERT INTO produto ( descricao, preco, estoque) 
+VALUES ('ERRADO' , 150.00, 15);
 

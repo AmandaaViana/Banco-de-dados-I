@@ -35,6 +35,7 @@ CREATE TABLE produto (
 	estoque INT
 );
 
+
 INSERT INTO produto (descricao, preco, estoque) 
 VALUES ('Notebook' , 2500.00, 10);
 
@@ -43,4 +44,13 @@ VALUES ('Mouse' , 50.00, 100);
 
 INSERT INTO produto (descricao, preco, estoque) 
 VALUES ('Teclado' , 150.00, 50);
+
+SELECT * FROM produto;
+
+INSERT INTO produto (descricao, preco, estoque) 
+VALUES ('Teclado' , 150.00, 'HOJE'); //erro o hoje precisa ser um valor inteiro
+
+INSERT INTO produto (descricao, preco, estoque) 
+VALUES ('2025' , 150.00, 15);
+
 

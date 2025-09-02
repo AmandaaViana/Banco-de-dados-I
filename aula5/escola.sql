@@ -1,3 +1,5 @@
+CREATE DATABASE escola;
+
 CREATE TABLE turma 
 ( 
  id_turma SERIAL PRIMARY KEY,  
@@ -25,7 +27,7 @@ CREATE TABLE disciplina
 CREATE TABLE historico 
 ( 
  ano_letivo INT CHECK (ano_letivo > 2025 AND ano_letivo < 2100),  
- nota INT NOT NULL CHECK (nota >= 0 AND <= 100),  
+ nota INT NOT NULL CHECK (nota >= 0 AND nota <= 100),  
  id_aluno INT NOT NULL REFERENCES aluno (id_aluno), 
  id_disciplina INT NOT NULL REFERENCES disciplina (id_disciplina),  
  falta INT DEFAULT 0
@@ -42,7 +44,7 @@ CREATE TABLE professor_disciplina_turma
  id_professor INT NOT NULL REFERENCES professor (id_professor), 
  id_turma INT NOT NULL REFERENCES turma (id_turma),  
  id_disciplina NOT NULL REFERENCES disciplina (id_disciplina), 
- PRIMARY KEY (id_professor, id_disciplina, id_turma),
+ PRIMARY KEY (id_professor, id_disciplina, id_turma)
 ); 
 
 CREATE TABLE responsavel 

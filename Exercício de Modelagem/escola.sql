@@ -43,7 +43,7 @@ CREATE TABLE professor_disciplina_turma
 ( 
  id_professor INT NOT NULL REFERENCES professor (id_professor), 
  id_turma INT NOT NULL REFERENCES turma (id_turma),  
- id_disciplina NOT NULL REFERENCES disciplina (id_disciplina), 
+ id_disciplina INT NULL REFERENCES disciplina (id_disciplina), 
  PRIMARY KEY (id_professor, id_disciplina, id_turma)
 ); 
 
@@ -53,13 +53,13 @@ CREATE TABLE responsavel
  nome VARCHAR(80) NOT NULL,  
  telefone VARCHAR(21) NOT NULL,   
  celular VARCHAR(21) NOT NULL, 
- e-mail VARCHAR(225) NOT NULL,  
+ email VARCHAR(225) NOT NULL,  
 ); 
 
 CREATE TABLE aluno_responsavel 
 ( 
  id_aluno INT PRIMARY KEY REFERENCES aluno (id_aluno),  
- id_responsavel INT PRIMARY KEY REFERENCES responsavel (id_responsavel),  
+ id_responsavel INT NOT NULL REFERENCES responsavel (id_responsavel)  
 ); 
 
 

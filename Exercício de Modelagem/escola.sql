@@ -33,9 +33,11 @@ CREATE TABLE historico
  falta INT DEFAULT 0
 ); 
 
+ALTER TABLE professor ALTER COLUMN id_professor SET DEFAULT nextval('professor_id'::regclass);
+
 CREATE TABLE professor 
 ( 
- id_professor INT PRIMARY KEY,  
+ id_professor SERIAL PRIMARY KEY,  
  nome VARCHAR(80) NOT NULL 
 ); 
 

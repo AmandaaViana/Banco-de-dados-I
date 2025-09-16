@@ -35,8 +35,8 @@ VALUES (1, 'Carlos Mendes', '2020-01-10'),
        (3, 'Joao Barion', '2020-01-10'),
        (4, 'Diego Higa', '2021-06-15');
 
-INSERT INTO Venda (id_venda, data, valor, comissão, id_chassi, id_matrícula, id_comprador)
-VALUES (1, '2023-05-20', 85000.00, 5000.00, '1G1PE5SB3E7100001', 1, 1),
-       (2, '2023-07-10', 95000.00, 3000.00, '3VWFE21C04M000001', 2, 2),
-       (3, '2023-08-25', 64000.00, 3500.00, '9BWZZZ377VT004251', 3, 3),
-       (4, '2023-10-19', 55000.00, 2500.00, '2HGFA165X7H000001', 4, 4);
+INSERT INTO Venda (id_venda, data, valor, comissão, id_veiculo, id_matrícula, id_comprador)
+VALUES (1, '2023-05-20', 85000.00, 5000.00, 1, 1, 1),
+       (2, '2023-07-10', 95000.00, 3000.00, 2, 2, 2),
+       (3, '2023-08-25', 64000.00, 3500.00, 3, 3, 3),
+       (4, '2023-10-19', 55000.00, 2500.00, 4, 4, 4);

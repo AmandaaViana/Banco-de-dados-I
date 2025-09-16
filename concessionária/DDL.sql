@@ -10,18 +10,19 @@ CREATE TABLE Modelo
 ( 
  id_modelo INT PRIMARY KEY, 
  nome_modelo VARCHAR(30) NOT NULL,
- idMarca INT NOT NULL REFERENCES Marca (idMarca) 
+ id_marca INT NOT NULL REFERENCES Marca (id_marca) 
 ); 
 
 CREATE TABLE Veiculo 
 ( 
- id_chassi INT PRIMARY KEY,  
+ id_veiculo INT PRIMARY KEY, 
+ chassi VARCHAR(17) NOT NULL, 
  placa VARCHAR(10) NOT NULL, 
  cor VARCHAR(20) NOT NULL, 
  ano INT NOT NULL,  
  quilometragem INT NOT NULL,    
- idModelo INT NOT NULL REFERENCES Modelo (idModelo),  
- idMarca INT NOT NULL REFERENCES Marca (idMarca)  
+ id_modelo INT NOT NULL REFERENCES Modelo ( id_modelo),  
+ id_marca INT NOT NULL REFERENCES Marca (id_marca)  
 ); 
 
 CREATE TABLE Comprador 
@@ -37,7 +38,7 @@ CREATE TABLE Cônjuge
  id_conjuge INT PRIMARY KEY,  
  nome VARCHAR(50),  
  cpf VARCHAR(14),  
- idComprador INT NOT NULL REFERENCES Comprador (idComprador)  
+ id_comprador INT NOT NULL REFERENCES Comprador (id_comprador)  
 ); 
 
 
@@ -48,15 +49,16 @@ CREATE TABLE Corretor
  admissão DATE NOT NULL
 ); 
 
-
 CREATE TABLE Venda 
 ( 
  id_venda INT PRIMARY KEY,  
  data DATE NOT NULL,  
- valor VARCHAR(10) NOT NULL,  
- comissão VARCHAR(10) NOT NULL,  
- idChassi INT NOT NULL REFERENCES Veiculo(idChassi),,  
- idCorretor INT NOT NULL REFERENCES Corretor (idCorretor),  
- idComprador INT NOT NULL REFERENCES Comprador (idComprador) 
+ valor NUMERIC(7,2) NOT NULL,  
+ comissão NUMERIC(7,2) NOT NULL,  
+ id_chassi INT NOT NULL REFERENCES Veiculo(id_chassi), 
+ id_corretor INT NOT NULL REFERENCES Corretor (id_corretor),  
+ id_comprador INT NOT NULL REFERENCES Comprador (id_comprador) 
 ); 
+
+
 

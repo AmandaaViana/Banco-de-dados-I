@@ -44,3 +44,59 @@ GROUP BY Cor.id_matricula, Cor.nome
 HAVING numero_vendas >= 3
 ORDER BY numero_vendas DESC;
 
+/*7*/
+SELECT Comp.nome, Ven.valor
+FROM Venda Ven
+INNER JOIN Comprador Comp ON Ven.id_comprador = Comp.id_comprador
+WHERE Ven.valor > 80000
+ORDER BY Ven.valor DESC;
+
+/*8*/
+SELECT DATE_FORMAT(data_venda, '%Y-%m') as mes_ano, COUNT(*) as vendas
+FROM Venda
+GROUP BY DATE_FORMAT(data_venda, '%Y-%m')
+ORDER BY mes_ano DESC;
+
+/*9*/
+SELECT Mod.nome_modelo, COUNT(*) as vendas
+FROM Venda Ven
+INNER JOIN Veiculo V ON Ven.id_veiculo = V.id_veiculo
+INNER JOIN Modelo Mod ON V.id_modelo = Mod.id_modelo
+GROUP BY Mod.nome_modelo
+ORDER BY vendas DESC
+LIMIT 5;
+
+/*10*/
+SELECT Mar.nome_marca, AVG(V.quilometragem) as media_km
+FROM Veiculo V
+INNER JOIN Modelo Mod ON V.id_modelo = Mod.id_modelo
+INNER JOIN Marca Mar ON Mod.id_marca = Mar.id_marca
+INNER JOIN Venda Ven ON V.id_veiculo = Ven.id_veiculo
+GROUP BY Mar.nome_marca
+HAVING media_km > 50000
+ORDER BY media_km DESC;
+
+/*11*/
+SELECT V.*, Mar.nome_marca, Mod.nome_modelo
+FROM Veiculo V
+INNER JOIN Modelo Mod ON V.id_modelo = Mod.id_modelo
+INNER JOIN Marca Mar ON Mod.id_marca = Mar.id_marca
+INNER JOIN Venda Ven ON V.id_veiculo = Ven.id_veiculo
+WHERE YEAR(Ven.data_venda) = 2024
+ORDER BY V.ano DESC;
+
+/*12*/
+SELECT Cor.nome, SUM(Ven.valor_comissao) as total_comissao
+FROM Venda Ven
+INNER JOIN Corretor Cor ON Ven.id_corretor = Cor.id_matricula
+GROUP BY Cor.id_matricula, Cor.nome
+HAVING total_comissao > 10000
+ORDER BY total_comissao DESC;
+
+/*13*/
+SELECT Comp.nome as comprador, Comp.estado_civil, 
+       Comp.nome_conjuge, Comp.cpf_conjuge, Ven.valor
+FROM Comprador Comp
+INNER JOIN Venda Ven ON Comp.id_comprador = Ven.id_comprador
+WHERE Comp.estado_civil = 'Casado' AND Comp.nome_conjuge IS NOT NULL
+ORDER BY Ven.valor DESC;

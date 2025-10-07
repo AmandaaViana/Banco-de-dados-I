@@ -8,6 +8,15 @@ CREATE TABLE Campeonato
  temporada YEAR NOT NULL 
 ); 
 
+CREATE TABLE Endereco 
+( 
+ id_endereco INT PRIMARY KEY AUTO_INCREMENT,  
+ rua VARCHAR(100),
+ cidade VARCHAR(50) NOT NULL,   
+ estado VARCHAR(2) NOT NULL,  
+ cep VARCHAR(10) NOT NULL
+); 
+
 CREATE TABLE Piloto 
 ( 
  id_Piloto INT PRIMARY KEY AUTO_INCREMENT,  
@@ -44,16 +53,6 @@ CREATE TABLE Etapa
  idCampeonato INT NOT NULL REFERENCES Campeonato (idCampeonato)  
 ); 
 
-CREATE TABLE Classificacao_etapa 
-( 
- id_classificacao_etapa INT PRIMARY KEY AUTO_INCREMENT,  
- classificacao INT NOT NULL,  
- posicao_etapa INT NOT NULL,  
- pontuacao INT NOT NULL,  
- idPiloto INT NOT NULL REFERENCES Piloto (idPiloto),  
- idEtapa INT NOT NULL REFERENCES Etapa (idEtapa) 
-); 
-
 CREATE TABLE Patrocinio 
 ( 
  id_Patrocinio INT PRIMARY KEY AUTO_INCREMENT,  
@@ -66,15 +65,6 @@ CREATE TABLE Patrocinio
  idCampeonato INT NOT NULL  REFERENCES Campeonato (idCampeonato)
 ); 
 
-CREATE TABLE Endereco 
-( 
- id_endereco INT PRIMARY KEY AUTO_INCREMENT,  
- rua VARCHAR(100),
- cidade VARCHAR(50) NOT NULL,   
- estado VARCHAR(2) NOT NULL,  
- cep VARCHAR(10) NOT NULL
-); 
-
 CREATE TABLE Ingresso 
 ( 
  id_ingresso INT PRIMARY KEY AUTO_INCREMENT,  
@@ -83,3 +73,12 @@ CREATE TABLE Ingresso
  idCampeonato INT NOT NULL REFERENCES Campeonato (idCampeonato)
 ); 
 
+CREATE TABLE Classificacao_etapa 
+( 
+ id_classificacao_etapa INT PRIMARY KEY AUTO_INCREMENT,  
+ classificacao INT NOT NULL,  
+ posicao_etapa INT NOT NULL,  
+ pontuacao INT NOT NULL,  
+ idPiloto INT NOT NULL REFERENCES Piloto (idPiloto),  
+ idEtapa INT NOT NULL REFERENCES Etapa (idEtapa) 
+); 

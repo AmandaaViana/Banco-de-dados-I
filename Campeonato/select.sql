@@ -6,7 +6,10 @@ SELECT
     cnpj, 
     MAX(valorPatrocinio) AS valor do patrocínio
 FROM 
-    Patrocinio;
+    Patrocinio
+ORDER BY
+    valorPatrocinio DESC -- Ordena do maior
+LIMIT 1;
 
 /*2 - Qual é a classificação final (ranking) do campeonato? 
 Liste o apelido do piloto, a categoria, e a pontuação total acumulada em todas as etapas e sua posição no ranking.*/

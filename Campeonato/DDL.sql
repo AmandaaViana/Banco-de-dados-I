@@ -70,6 +70,7 @@ CREATE TABLE Ingresso
  id_ingresso INT PRIMARY KEY,  
  nome VARCHAR(100) NOT NULL,  
  cpf VARCHAR(14) UNIQUE NOT NULL,  
+ valor 
  id_Campeonato INT NOT NULL REFERENCES Campeonato (id_Campeonato)
 ); 
 
@@ -82,3 +83,4 @@ CREATE TABLE Classificacao_etapa
  id_Piloto INT NOT NULL REFERENCES Piloto (id_Piloto),  
  id_Etapa INT NOT NULL REFERENCES Etapa (id_Etapa) 
 ); 
+

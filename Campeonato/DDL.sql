@@ -70,7 +70,7 @@ CREATE TABLE Ingresso
  id_ingresso INT PRIMARY KEY,  
  nome VARCHAR(100) NOT NULL,  
  cpf VARCHAR(14) UNIQUE NOT NULL,  
- valor 
+ valor NUMERIC(7,2) NOT NULL,  
  id_Campeonato INT NOT NULL REFERENCES Campeonato (id_Campeonato)
 ); 
 

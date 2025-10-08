@@ -67,7 +67,7 @@ VALUES (1, 'Fueltech', '12.345.678/0001-90', '(21) 1234-5678', 'Fueltech@gmail.c
        (4, 'Sparco', '56.789.012/0001-56', '(51) 5678-9012', 'Sparco@mail.com', 'Porto Alegre', 45000.00, 1),
        (5, 'Perfect Automotive', '87.654.321/0001-56', '(41) 8765-4321', 'PerfectAutomotive@gmail.com', 'Curitiba', 55000.00, 1);
 
-INSERT INTO Ingresso (id_Ingresso, nome, cpf, valor, id_Etapa) --arrumar vaor no ddl
+INSERT INTO Ingresso (id_Ingresso, nome, cpf, valor, id_Etapa)
 VALUES (1, 'João Silva', '123.456.789-00', '2025-03-01', 150.00, 1),
        (2, 'Maria Oliveira', '987.654.321-00', '2025-03-05', 200.00, 1),
        (3, 'Carlos Pereira', '456.789.123-00', '2025-03-10', 180.00, 1),
